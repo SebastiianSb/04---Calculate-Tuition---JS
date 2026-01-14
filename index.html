@@ -52,10 +52,42 @@
                 <select name="certificate" id="cert">
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
-
+            </li>
                 </select>
+            <li>
+                <div class="buttom">
+                    <button type="button" id="btn-register">Register</button>
+                </div>
+            </li>
+            
+        </ul>
+    </div>
+
+    <div class="results">
+        <div class="outcomes">
+        <ul>
+            <li>
+                <label for="name-result">Student name: </label>
+                <span id="res-name"></span>
+            </li>
+            <li>
+                <label for="course-result">Course name:  </label>
+                <span id="res-course"></span>
+            </li>
+            <li>
+                <label for="amount-credits-result">Credits price:  </label>
+                <span id="res-amount"></span>
+            </li>
+            <li>
+                <label for="social-stratum">Social stratum:  </label>
+                <span id="res-social"
+            </li>
+            <li>
+                <label for="amount-credits-result">Voter certificate:  </label>
+                <span id="res-certificate"></span>
             </li>
         </ul>
+        </div>
     </div>
 
     </form>
@@ -69,19 +101,53 @@
         const credits_amount = document.getElementById('credits')
         const stratum = document.getElementById('stratum')
         const btnLogin = document.getElementById('btn-login')
+
         const simulator = document.querySelector('.simulator')
+        const results = document.querySelector('.results')
         
+        const nameOut = document.getElementById('res-name')
+        const courseOut = document.getElementById('res-course')
+        const amountCreditsOut = document.getElementById('res-amount')
+        const socialStratumOut = document.getElementById('res-social')
+        const certificateOut = document.getElementById('res-cretificate')
+        const btnRegister = document.getElementById('btn-register')
+
         btnLogin.addEventListener('click', () =>{
 
-            const contenido = password.value
-
-            if(contenido == 123){
+            if(password.value == 123){
 
                 simulator.style.display = 'block'
 
                 document.querySelector('.conteiner').style.display = 'none'
+
+            }else{
+                alert("Contraseña Incorrecta")
             }
         })
+
+        function calculatePrice(credits){
+
+            // const credits = document.getElementById('credits').value
+            
+            // const priceCredit = 123000
+            // const priceResult = (priceCredit * credits)
+
+            // amountCreditsOut.textContent = priceResult
+        }
+
+        btnRegister.addEventListener('click', calculatePrice => {
+
+            results.style.display = 'block'
+            document.querySelector('.simulator').style.display = 'none'
+            
+            nameOut.textContent = userName.value
+            courseOut.textContent = courseName.value
+        })
+
+
+        
+
+
 
     </script>
 </body>

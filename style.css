@@ -50,7 +50,7 @@ body {
     opacity: 0.3;
 }
 
-.conteiner, .simulator {
+.conteiner, .simulator, .results {
     background: var(--card-bg);
     width: 100%;
     max-width: 450px;
@@ -61,7 +61,7 @@ body {
     transition: transform 0.2s ease;
 }
 
-.conteiner:hover, .simulator:hover {
+.conteiner:hover, .simulator:hover, .results {
     transform: translateY(-2px);
 }
 
@@ -82,6 +82,15 @@ label {
     font-size: 0.875rem;
     font-weight: 600;
     color: var(--text-muted);
+    margin-bottom: 8px;
+    transition: color 0.2s ease;
+}
+
+span{
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-main);
     margin-bottom: 8px;
     transition: color 0.2s ease;
 }
@@ -145,8 +154,17 @@ input[type="number"] {
     margin-bottom: 20px;
     color: var(--text-main);
 }
-.simulator {
+.simulator, .results {
     display: none; 
+}
+
+.results::before{
+    content: "Results";
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--text-main);
 }
 
 @media (max-width: 480px) {
