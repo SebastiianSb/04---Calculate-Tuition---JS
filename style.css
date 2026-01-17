@@ -50,7 +50,9 @@ body {
     opacity: 0.3;
 }
 
-.conteiner, .simulator, .results {
+.container,
+.simulator,
+.results {
     background: var(--card-bg);
     width: 100%;
     max-width: 450px;
@@ -61,7 +63,9 @@ body {
     transition: transform 0.2s ease;
 }
 
-.conteiner:hover, .simulator:hover, .results {
+.container:hover,
+.simulator:hover,
+.results {
     transform: translateY(-2px);
 }
 
@@ -86,7 +90,7 @@ label {
     transition: color 0.2s ease;
 }
 
-span{
+span {
     display: block;
     font-size: 0.875rem;
     font-weight: 600;
@@ -125,12 +129,12 @@ input[type="number"] {
     color: var(--text-main);
 }
 
-.buttom button {  
-    margin-top: 10px;   
-    width: 100%;             
-    padding: 12px 16px;      
+.buttom button {
+    margin-top: 10px;
+    width: 100%;
+    padding: 12px 16px;
     font-size: 1rem;
-    font-family: inherit;    
+    font-family: inherit;
     border-radius: 8px;
     background-color: var(--primary-color);
     color: white;
@@ -138,7 +142,7 @@ input[type="number"] {
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.2s ease;
-    display: block;         
+    display: block;
 }
 
 .buttom button:hover {
@@ -154,11 +158,13 @@ input[type="number"] {
     margin-bottom: 20px;
     color: var(--text-main);
 }
-.simulator, .results {
-    display: none; 
+
+.simulator,
+.results {
+    display: none;
 }
 
-.results::before{
+.results::before {
     content: "Results";
     display: block;
     font-size: 1.2rem;
@@ -171,10 +177,13 @@ input[type="number"] {
     body {
         padding: 20px 15px;
     }
+
     #calculate-price {
         font-size: 1.8rem;
     }
-    .conteiner, .simulator {
+
+    .container,
+    .simulator {
         padding: 20px;
     }
 }
