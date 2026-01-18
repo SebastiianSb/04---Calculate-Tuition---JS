@@ -25,6 +25,10 @@
                         <input type="text" id="name" name="user_name" required>
                     </li>
                     <li>
+                        <label for="name">Enter your Identification: </label>
+                        <input type="text" id="id" name="user_id" required>
+                    </li>
+                    <li>
                         <label for="password">Enter your password: </label>
                         <input type="password" id="password" name="pass" required>
                         <div class="buttom">
@@ -74,6 +78,10 @@
                         <span id="res-name"></span>
                     </li>
                     <li>
+                        <label for="id-result">Student Identification: </label>
+                        <span id="res-id"></span>
+                    </li>
+                    <li>
                         <label for="course-result">Course name: </label>
                         <span id="res-course"></span>
                     </li>
@@ -93,6 +101,15 @@
                         <label for="amount-credits-result">Voter certificate: </label>
                         <span id="res-certificate"></span>
                     </li>
+                    <li>
+                        <label for="save-money">Money saved: </label>
+                        <span id="money-saved"></span>
+                    </li>
+                    <li>
+                    <div class="buttom">
+                        <button type="button" id="btn-close">Finish process</button>
+                    </div>
+                </li>
                 </ul>
             </div>
         </div>
@@ -104,6 +121,7 @@
 
         const userName = document.getElementById('name')
         const password = document.getElementById('password')
+        const id = document.getElementById('id')
         const courseName = document.getElementById('course')
         const creditsAmount = document.getElementById('credits')
         const stratum = document.getElementById('stratum')
@@ -116,12 +134,16 @@
         const price = 123000
 
         const nameOut = document.getElementById('res-name')
+        const idOut = document.getElementById('res-id')
         const courseOut = document.getElementById('res-course')
         const totalPriceOut = document.getElementById('res-amount')
         const creditsCountOut = document.getElementById('res-credits')
         const socialStratumOut = document.getElementById('res-social')
         const certificateOut = document.getElementById('res-certificate')
+        const moneySave = document.getElementById('money-saved')
+
         const btnRegister = document.getElementById('btn-register')
+        const btnClose = document.getElementById('btn-close')
 
         btnLogin.addEventListener('click', () => {
 
@@ -138,6 +160,15 @@
 
         btnRegister.addEventListener('click', function () {
 
+            const creditsValue = Number(creditsAmount.value)
+            const stratumValue = Number(stratum.value)
+
+            if((creditsValue < 1 || creditsValue > 21 || stratumValue < 1 || stratumValue > 6)){
+
+                alert("Porfavor ingrese valores correctos")
+                return
+            }
+
             results.style.display = 'block'
             document.querySelector('.simulator').style.display = 'none'
 
@@ -146,33 +177,71 @@
             creditsCountOut.textContent = creditsAmount.value
             socialStratumOut.textContent = stratum.value
             certificateOut.textContent = certificate.value
+            idOut.textContent = id.value
             calculateTuition()
         })
-
+        
 
     function calculateTuition() {
 
+        const stratum2 = Number(stratum.value)
         const credits = Number(creditsAmount.value)
-        let discount = 0
+
+        
+        let discountCertificate = 0
 
         const priceCredit = price
 
         const subTotal = (credits * priceCredit)
 
-        const hasCertificate = certificate.value = 'Yes'
+        const hasCertificate = certificate.value 
 
-        if(hasCertificate){
-            discount = subTotal * 0.15
+        if(hasCertificate === 'Yes'){
+            discountCertificate = subTotal * 0.10
         }
 
-        const total = subTotal - discount
+        const firstTotal = subTotal - discountCertificate
 
-        creditsCountOut.textContent = total
+        let discountStratum = 0
+
+            switch(stratum2){
+            case 1:
+            case 2:
+                discountStratum = firstTotal * 0.15
+                break;
+            case 3:
+            case 4:
+                discountStratum = firstTotal * 0.10
+                break;
+            case 5:
+            case 6:
+                discountStratum = firstTotal * 0.05
+                break;
+            }
+
+        const finalTotal = firstTotal - discountStratum
+
+        const discount = discountStratum + discountCertificate
+
+        totalPriceOut.textContent = finalTotal
+        moneySave.textContent = discount
         
     }
 
+    btnClose.addEventListener('click', () => {
+        results.style.display = 'none'
+        document.querySelector('.container').style.display = 'block'
 
+        document.getElementById('name').value = ''
+        document.getElementById('id').value = ''
+        document.getElementById('password').value = ''
 
+        document.getElementById('course').value = ''
+        document.getElementById('credits').value = ''
+        document.getElementById('stratum').value = ''
+
+    })
+    
     </script>
 </body>
 
