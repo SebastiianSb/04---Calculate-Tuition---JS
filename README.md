@@ -67,7 +67,6 @@ finalTotal = firstTotal - discountStratum
 discount = discountStratum + discountCertificate
 ```
 ---
-
 ## Design & Development
 
 ### Design Approach
