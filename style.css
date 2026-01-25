@@ -172,6 +172,7 @@ input[type="number"] {
     margin-bottom: 20px;
     color: var(--text-main);
 }
+
 .outcomes ul {
     list-style: none;
     padding: 0;
@@ -196,8 +197,7 @@ input[type="number"] {
 
 .outcomes ul li span {
     font-weight: bold;
-    color: var(--text-main)
-    text-align: right;
+    color: var(--text-main) text-align: right;
     word-break: break-word;
 }
 
